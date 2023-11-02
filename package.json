@@ -1,6 +1,6 @@
 {
   "name": "formio-export",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "Formio Export Tools",
   "main": "lib/formio-export.js",
   "directories": {
@@ -10,8 +10,8 @@
   "scripts": {
     "build": "webpack --env dev && webpack --env build && npm run test",
     "dev": "webpack --progress --colors --watch --env dev",
-    "test": "mocha --require jsdom-global/register --require babel-core/register --colors ./test/*.spec.js",
-    "test:watch": "mocha --require jsdom-global/register --require babel-core/register --colors -w ./test/*.spec.js"
+    "test": "mocha --require jsdom-global/register --require @babel/register --colors ./test/*.spec.js",
+    "test:watch": "mocha --require jsdom-global/register --require @babel/register --colors -w ./test/*.spec.js"
   },
   "repository": {
     "type": "git",
@@ -29,24 +29,28 @@
   },
   "homepage": "https://github.com/airarrazaval/formio-export#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.3",
-    "babel-loader": "^7.1.4",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-preset-env": "^1.6.1",
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.2",
+    "@babel/eslint-parser": "^7.22.15",
+    "@babel/plugin-transform-runtime": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
+    "@babel/register": "^7.22.15",
+    "babel-eslint": "^8.0.3",
+    "babel-loader": "^8.3.0",
     "chai": "^4.1.2",
-    "eslint": "^4.19.1",
-    "eslint-loader": "^2.0.0",
-    "jsdom": "^11.10.0",
+    "eslint": "^8.52.0",
+    "eslint-webpack-plugin": "^4.0.1",
+    "jsdom": "^22.1.0",
     "jsdom-global": "^3.0.2",
-    "mocha": "^5.1.1",
-    "webpack": "^4.6.0",
-    "webpack-cli": "^2.1.2",
-    "yargs": "^11.0.0"
+    "mocha": "^10.2.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "yargs": "^17.7.2"
   },
   "dependencies": {
-    "js-html2pdf": "^1.1.4",
+    "@babel/runtime": "^7.23.2",
+    "canvas": "^2.11.2",
+    "js-html2pdf": "git@github.com:0mcandal0/html2pdf.git",
     "lodash": "^4.17.10"
   }
 }

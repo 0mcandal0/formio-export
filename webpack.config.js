@@ -1,5 +1,7 @@
 /* global __dirname, require, module*/
 // const webpack = require('webpack');
+const ESLintPlugin = require('eslint-webpack-plugin');
+
 const path = require('path');
 const env = require('yargs').argv.env; // use --env with webpack 2
 const pkg = require('./package.json');
@@ -30,17 +32,21 @@ const config = {
   optimization: {
     minimize: minimize
   },
+plugins: [
+  new ESLintPlugin({
+    // Aquí puedes añadir opciones específicas para el plugin
+    extensions: ['js', 'jsx'],
+    exclude: 'node_modules',
+    // más opciones si las necesitas
+  }),
+  // otros plugins
+],
   module: {
     rules: [
       {
         test: /(\.jsx|\.js)$/,
         loader: 'babel-loader',
         exclude: /(node_modules|bower_components)/
-      },
-      {
-        test: /(\.jsx|\.js)$/,
-        loader: 'eslint-loader',
-        exclude: /node_modules/
       }
     ]
   },
